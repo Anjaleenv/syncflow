@@ -1,0 +1,53 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+@keyframes emojiPopBurst {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 20px, 0) scale(0.6);
+  }
+
+  20% {
+    opacity: 1;
+    transform: translate3d(0, -20px, 0) scale(1.8);
+  }
+
+  70% {
+    opacity: 0.9;
+    transform: translate3d(0, -100px, 0) scale(1.8);
+  }
+
+  100% {
+    opacity: 0;
+    transform: translate3d(0, -180px, 0) scale(1.2);
+  }
+}
+
+.animate-emoji-burst {
+  animation: emojiPopBurst 1.8s ease-out forwards;
+  will-change: transform, opacity;
+}
